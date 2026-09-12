@@ -1,0 +1,27 @@
+{
+  "name": "Cabinet dentaire Dr Charki Meryem",
+  "short_name": "Cabinet Dr Charki",
+  "description": "Gestion des patients, rendez-vous, traitements et paiements.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f2f6f5",
+  "theme_color": "#0b6b63",
+  "icons": [
+    {
+      "src": "app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b6b63">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Cabinet Dr Charki">
+  <title>Cabinet Dr Charki Meryem</title>
+  <meta name="description" content="Démonstration du logiciel de gestion du cabinet dentaire de Dr Charki Meryem.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b6b63'/%3E%3Cpath d='M19 18c6-5 20-5 26 0 5 5 1 12-1 18-2 8-4 15-8 15-3 0-2-9-4-9s-1 9-4 9c-4 0-6-7-8-15-2-6-6-13-1-18Z' fill='white'/%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="app-icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="login" class="login-screen">
+    <section class="login-visual">
+      <div class="login-brand"><div class="brand-mark" data-icon="tooth"></div><div><strong>Cabinet Dr Charki</strong><span>Espace de gestion dentaire</span></div></div>
+      <div class="login-copy"><span class="eyebrow">Démonstration interactive</span><h1>Le cabinet,<br>en toute clarté.</h1><p>Patients, rendez-vous, traitements et paiements réunis dans un espace simple et pensé pour le quotidien.</p></div>
+      <div class="security-note"><span data-icon="shield"></span>Données fictives · Aucun dossier médical réel</div>
+    </section>
+    <section class="login-panel"><div class="login-box"><h2>Bonjour</h2><p>Choisissez un profil pour découvrir son espace.</p>
+      <button class="profile-card" data-login="dentiste"><span class="avatar">MC</span><span><strong>Dr Charki Meryem</strong><small>Dentiste · Accès complet</small></span><span class="chev" data-icon="arrow"></span></button>
+      <button class="profile-card" data-login="assistante"><span class="avatar assistante">HA</span><span><strong>Hanane</strong><small>Assistante · Accès administratif</small></span><span class="chev" data-icon="arrow"></span></button>
+      <div class="demo-hint"><span data-icon="info"></span><span>Aucun mot de passe n’est demandé dans cette démo. La version finale utilisera une authentification sécurisée.</span></div>
+    </div></section>
+  </div>
+
+  <div id="app" class="app-shell hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="side-brand"><div class="brand-mark" data-icon="tooth"></div><div><strong>Cabinet<br>Dr Charki</strong><span>Gestion dentaire</span></div></div>
+      <div class="nav-label">Espace de travail</div>
+      <nav class="nav">
+        <button class="nav-btn active" data-page="dashboard"><span data-icon="grid"></span>Tableau de bord</button>
+        <button class="nav-btn" data-page="agenda"><span data-icon="calendar"></span>Agenda</button>
+        <button class="nav-btn" data-page="patients"><span data-icon="users"></span>Patients</button>
+        <button class="nav-btn clinical-nav" data-page="dossier"><span data-icon="file"></span>Dossier clinique</button>
+        <button class="nav-btn clinical-nav" data-page="traitements"><span data-icon="clipboard"></span>Plans de traitement</button>
+        <button class="nav-btn" data-page="paiements"><span data-icon="wallet"></span>Paiements</button>
+        <button class="nav-btn dentist-only" data-page="rapports"><span data-icon="chart"></span>Rapports</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="nav-label">Cabinet</div><nav class="nav"><button class="nav-btn" data-page="parametres"><span data-icon="settings"></span>Paramètres</button></nav><div class="profile-mini"><span id="sideAvatar" class="avatar">MC</span><div><strong id="sideName">Dr Charki Meryem</strong><span id="sideRole">Dentiste</span></div><button class="switch-profile" id="logoutBtn" title="Changer de profil"><span data-icon="logout"></span></button></div></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar"><button id="menuBtn" class="mobile-menu"><span data-icon="menu"></span></button><div class="page-title"><h1 id="headerTitle">Tableau de bord</h1><p>Samedi 12 septembre 2026</p></div><div class="top-actions"><button class="icon-btn"><span data-icon="bell"></span><i class="notify-dot"></i></button><button class="btn btn-outline" data-modal="patient"><span data-icon="user-plus"></span>Nouveau patient</button><button class="btn btn-primary" data-modal="rdv"><span data-icon="plus"></span><span>Nouveau rendez-vous</span></button></div></header>
+      <div class="content">
+        <div class="demo-banner"><span data-icon="info"></span><span>Mode démonstration — toutes les informations affichées sont fictives.</span><button id="resetDemo">Réinitialiser</button></div>
+
+        <section id="page-dashboard" class="section active">
+          <div class="section-head"><div><h2 id="welcomeTitle">Bonjour, Dr Charki</h2><p>Voici l’essentiel de votre journée au cabinet.</p></div><div class="kpi-row"><span class="kpi-chip">Prochain patient <b>dans 18 min</b></span><span class="kpi-chip">Agenda <b>87 % rempli</b></span></div></div>
+          <div class="grid metrics">
+            <article class="metric"><div class="metric-top"><span>Rendez-vous aujourd’hui</span><span class="metric-icon" data-icon="calendar"></span></div><strong>8</strong><span class="metric-foot"><span class="up">7 confirmés</span> · 1 en attente</span></article>
+            <article class="metric blue"><div class="metric-top"><span>Revenu du jour</span><span class="metric-icon" data-icon="wallet"></span></div><strong>4 850 MAD</strong><span class="metric-foot"><span class="up">+12 %</span> vs samedi dernier</span></article>
+            <article class="metric orange"><div class="metric-top"><span>Montants à recevoir</span><span class="metric-icon" data-icon="clock"></span></div><strong>13 600 MAD</strong><span class="metric-foot">Répartis sur 9 dossiers</span></article>
+            <article class="metric purple"><div class="metric-top"><span>Nouveaux patients</span><span class="metric-icon" data-icon="users"></span></div><strong>18</strong><span class="metric-foot"><span class="up">+4</span> ce mois-ci</span></article>
+          </div>
+          <div class="grid dashboard-grid"><article class="card"><div class="card-head"><div><h3>Agenda du jour</h3><p>Samedi 12 septembre · 08:30–17:30</p></div><button class="text-btn" data-go="agenda">Voir l’agenda</button></div><div id="todaySchedule" class="schedule"></div></article><div class="side-stack"><article class="card revenue-card"><span class="label">Chiffre d’affaires · Septembre</span><strong>72 400 MAD</strong><span class="trend">↗ 12,4 % ce mois</span><svg class="spark" viewBox="0 0 320 80" preserveAspectRatio="none"><defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8de2d9" stop-opacity=".27"/><stop offset="1" stop-color="#8de2d9" stop-opacity="0"/></linearGradient></defs><polygon class="area" points="0,65 35,52 70,57 105,33 140,39 175,24 210,31 245,12 280,20 320,5 320,80 0,80"/><polyline points="0,65 35,52 70,57 105,33 140,39 175,24 210,31 245,12 280,20 320,5"/></svg><div class="payment-row"><span>Objectif mensuel</span><b>100 000 MAD</b></div></article><article class="card"><div class="card-head"><div><h3>Activité récente</h3><p>Dernières actions enregistrées</p></div></div><div id="activityList" class="mini-list"></div></article></div></div>
+        </section>
+
+        <section id="page-agenda" class="section"><div class="section-head"><div><h2>Agenda</h2><p>Planifiez et suivez les rendez-vous du cabinet.</p></div><div class="section-actions"><button class="btn btn-outline">Aujourd’hui</button><button class="btn btn-primary" data-modal="rdv"><span data-icon="plus"></span>Nouveau rendez-vous</button></div></div><div class="grid calendar-shell"><article class="card calendar"><div class="calendar-header"><button class="icon-btn">‹</button><strong>7 – 12 septembre 2026</strong><button class="icon-btn">›</button></div><div id="calendarGrid" class="calendar-grid"></div></article><article class="card day-panel"><h3>Samedi 12 septembre</h3><p>8 rendez-vous · 7 confirmés</p><div id="dayAgenda" class="day-agenda"></div></article></div></section>
+
+        <section id="page-patients" class="section"><div class="section-head"><div><h2>Patients</h2><p id="patientsCount">126 patients enregistrés</p></div><button class="btn btn-primary" data-modal="patient"><span data-icon="user-plus"></span>Nouveau patient</button></div><div class="toolbar"><label class="search"><span data-icon="search"></span><input id="patientSearch" type="search" placeholder="Rechercher un patient…"></label><select id="patientFilter" class="filter"><option value="all">Tous les patients</option><option value="balance">Solde à recevoir</option><option value="upcoming">Rendez-vous à venir</option></select></div><article class="card table-card"><table class="data-table"><thead><tr><th>Patient</th><th>Téléphone</th><th>Dernière visite</th><th>Prochain rendez-vous</th><th>Solde</th><th></th></tr></thead><tbody id="patientsBody"></tbody></table><div id="patientsEmpty" class="empty hidden">Aucun patient ne correspond à votre recherche.</div></article></section>
+
+        <section id="page-dossier" class="section"><article class="card patient-hero"><span class="avatar large">SE</span><div><h2>Sara El Mansouri</h2><div class="patient-meta"><span>#PAT-00281</span><span>31 ans</span><span>06 12 34 56 78</span><span>Casablanca</span></div></div><div class="hero-actions"><button class="btn btn-outline" data-modal="rdv">Planifier un rendez-vous</button><button class="btn btn-primary">Modifier la fiche</button></div></article><div class="tabs"><button class="tab-btn active" data-tab="resume">Résumé</button><button class="tab-btn" data-tab="odontogramme">Odontogramme</button><button class="tab-btn" data-tab="traitement">Plan de traitement</button><button class="tab-btn" data-tab="paiements-patient">Paiements</button><button class="tab-btn" data-tab="documents">Documents</button></div><div id="patientTabContent"></div></section>
+
+        <section id="page-traitements" class="section"><div class="section-head"><div><h2>Plans de traitement</h2><p>Suivi clinique, progression et devis des patients.</p></div><button class="btn btn-primary"><span data-icon="plus"></span>Nouveau plan</button></div><article class="card table-card"><table class="data-table"><thead><tr><th>Patient</th><th>Plan</th><th>Progression</th><th>Montant</th><th>Reste</th><th>État</th></tr></thead><tbody id="treatmentsBody"></tbody></table></article></section>
+
+        <section id="page-paiements" class="section"><div class="section-head"><div><h2>Paiements</h2><p>Encaissements, soldes et historique financier.</p></div><button class="btn btn-primary" data-modal="paiement"><span data-icon="plus"></span>Enregistrer un paiement</button></div><div class="grid metrics"><article class="metric"><div class="metric-top"><span>Encaissé aujourd’hui</span><span class="metric-icon" data-icon="wallet"></span></div><strong id="paidToday">4 850 MAD</strong><span class="metric-foot">7 règlements</span></article><article class="metric blue"><div class="metric-top"><span>Encaissé ce mois</span><span class="metric-icon" data-icon="chart"></span></div><strong>72 400 MAD</strong><span class="metric-foot"><span class="up">+12,4 %</span> vs août</span></article><article class="metric orange"><div class="metric-top"><span>Reste à recevoir</span><span class="metric-icon" data-icon="clock"></span></div><strong>13 600 MAD</strong><span class="metric-foot">9 dossiers concernés</span></article><article class="metric purple"><div class="metric-top"><span>Panier moyen</span><span class="metric-icon" data-icon="receipt"></span></div><strong>655 MAD</strong><span class="metric-foot">Par patient ce mois</span></article></div><article class="card table-card"><div class="card-head"><div><h3>Derniers encaissements</h3><p>Mis à jour aujourd’hui à 14:24</p></div><button class="text-btn">Exporter</button></div><table class="data-table"><thead><tr><th>Référence</th><th>Patient</th><th>Date</th><th>Mode</th><th>Montant</th><th>Statut</th></tr></thead><tbody id="paymentsBody"></tbody></table></article></section>
+
+        <section id="page-rapports" class="section"><div class="section-head"><div><h2>Rapports</h2><p>Pilotage financier et activité du cabinet.</p></div><div class="section-actions"><select class="filter"><option>Septembre 2026</option><option>Août 2026</option></select><button class="btn btn-outline"><span data-icon="download"></span>Exporter</button></div></div><div class="grid metrics"><article class="metric"><div class="metric-top"><span>Chiffre d’affaires</span><span class="metric-icon" data-icon="chart"></span></div><strong>72 400 MAD</strong><span class="metric-foot"><span class="up">+12,4 %</span> vs période précédente</span></article><article class="metric"><div class="metric-top"><span>Patients traités</span><span class="metric-icon" data-icon="users"></span></div><strong>126</strong><span class="metric-foot"><span class="up">+8 %</span> ce mois</span></article><article class="metric"><div class="metric-top"><span>Nouveaux patients</span><span class="metric-icon" data-icon="user-plus"></span></div><strong>18</strong><span class="metric-foot">14 % de la patientèle</span></article><article class="metric"><div class="metric-top"><span>Taux d’absence</span><span class="metric-icon" data-icon="clock"></span></div><strong>6,2 %</strong><span class="metric-foot"><span class="up">−1,3 pt</span> ce mois</span></article></div><div class="grid report-grid"><article class="card chart-card"><div class="chart-top"><div><h3>Revenus mensuels</h3><strong>72 400 MAD</strong></div><span class="status">+12,4 %</span></div><div id="barChart" class="bar-chart"></div></article><article class="card chart-card"><div class="chart-top"><div><h3>Revenus par catégorie</h3><p class="muted">Répartition du mois</p></div></div><div class="donut-wrap"><div class="donut"><div><strong>72,4 k</strong><span>MAD</span></div></div></div><div class="legend-list"><div class="legend-item" style="--c:#0b6b63"><span>Prothèses & couronnes</span><b>48 %</b></div><div class="legend-item" style="--c:#50b8ae"><span>Soins conservateurs</span><b>26 %</b></div><div class="legend-item" style="--c:#e99b57"><span>Hygiène & prévention</span><b>17 %</b></div><div class="legend-item" style="--c:#dce9e7"><span>Autres</span><b>9 %</b></div></div></article></div></section>
+
+        <section id="page-parametres" class="section"><div class="section-head"><div><h2>Paramètres</h2><p>Configuration de la démonstration du cabinet.</p></div></div><div class="grid settings-grid"><article class="card info-card"><h3>Informations du cabinet</h3><div class="info-grid"><div class="info"><label>Nom</label><span>Cabinet dentaire Dr Charki Meryem</span></div><div class="info"><label>Ville</label><span>Casablanca, Maroc</span></div><div class="info"><label>Devise</label><span>Dirham marocain (MAD)</span></div><div class="info"><label>Langue</label><span>Français</span></div></div></article><article class="card info-card"><h3>Utilisateurs</h3><div class="mini-item"><span class="avatar">MC</span><div><strong>Dr Charki Meryem</strong><span>Dentiste · Accès complet</span></div></div><div class="mini-item"><span class="avatar assistante">HA</span><div><strong>Hanane</strong><span>Assistante · Accès administratif</span></div></div></article><article class="card install-card"><div class="install-icon" data-icon="phone"></div><div><h3>Application mobile</h3><p>Installez Cabinet Dr Charki sur l’écran d’accueil pour l’utiliser comme une application.</p></div><button id="installApp" class="btn btn-primary">Installer</button></article></div></section>
+      </div>
+    </main>
+    <nav class="mobile-bottom-nav" aria-label="Navigation mobile">
+      <button class="mobile-nav-btn active" data-mobile-page="dashboard"><span data-icon="grid"></span><small>Accueil</small></button>
+      <button class="mobile-nav-btn" data-mobile-page="agenda"><span data-icon="calendar"></span><small>Agenda</small></button>
+      <button class="mobile-nav-btn mobile-create" data-modal="rdv" aria-label="Nouveau rendez-vous"><span data-icon="plus"></span></button>
+      <button class="mobile-nav-btn" data-mobile-page="patients"><span data-icon="users"></span><small>Patients</small></button>
+      <button class="mobile-nav-btn" data-mobile-page="paiements"><span data-icon="wallet"></span><small>Paiements</small></button>
+    </nav>
+  </div>
+
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true"><div class="modal"><div class="modal-head"><h3 id="modalTitle"></h3><button id="closeModal" class="close-btn">×</button></div><form id="modalForm"><div id="modalBody" class="modal-body"></div><div class="modal-foot"><button type="button" class="btn btn-outline" id="cancelModal">Annuler</button><button type="submit" class="btn btn-primary" id="submitModal">Enregistrer</button></div></form></div></div>
+  <div id="toast" class="toast"><span data-icon="check"></span><span id="toastText">Enregistré avec succès.</span></div>
+  <script src="app.js"></script>
+</body>
+</html>
